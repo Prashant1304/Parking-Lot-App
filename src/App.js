@@ -8,9 +8,11 @@ class Parking extends Component {
     toggleFour:false,
     toggleType:false,
     collect:false,
+    collect2:false,
     count:0,
+    count2:0,
     red:"",
-    colourr:""
+    red2:""
     }
   
   handleVehicleType=()=>{
@@ -23,11 +25,11 @@ class Parking extends Component {
     this.setState({toggleFour:!false})
   }
 
-  handleTwoTickeGenrator=()=>{
-    this.setState({red:"red"})
+  handleTwoTickeGenrator=(a)=>{
+    this.setState({red:"orange"})
+    console.log(a.target.className)
     var count=this.state.count
     this.setState({collect:!false})
-    // var red="red"
     if(count<16){
       this.setState({count:count+1})
       //  console.log(this.state.count)
@@ -35,15 +37,32 @@ class Parking extends Component {
       alert("slot is full")
     }
   }
-  
-  handleClourr=()=>{
-    this.setState({colourr:"red"})
 
+  handleFourTickeGenrator=()=>{
+    this.setState({red2:"orange"})
+    var count=this.state.count2
+    this.setState({collect2:!false})
+    if(count<16){
+      this.setState({count2:count+1})
+    } else{
+      alert("slot is full")
+    }
   }
+
+  handleClassName=(e)=>{
+    var neww = e.target.className="yzx"
+    this.setState({red:"red"})
+    console.log(neww)
+  }
+
+  handleClassName2=(e)=>{
+    var neww = e.target.className="yzx"
+    this.setState({red2:"red"})
+    console.log(neww)
+  }
+
   handleStyle=(b)=>{
-    console.log(b)
     if(this.state.count==1&&b==1){
-      // console.log("111")
       return this.state.red
     }else if(this.state.count==2&&b==2){
       return this.state.red
@@ -77,42 +96,82 @@ class Parking extends Component {
       return this.state.red
     }
   }
+  handleStyle2=(c)=>{
+    if(this.state.count2==1&&c==1){
+      return this.state.red2
+    }else if(this.state.count2==2&&c==2){
+      return this.state.red2
+    }else if(this.state.count2==3&&c==3){
+      return this.state.red2
+    }else if(this.state.count2==4&&c==4){
+      return this.state.red2
+    }else if(this.state.count2==5&&c==5){
+      return this.state.red2
+    }else if(this.state.count2==6&&c==6){
+      return this.state.red2
+    }else if(this.state.count2==7&&c==7){
+      return this.state.red2
+    }else if(this.state.count2==8&&c==8){
+      return this.state.red2
+    }else if(this.state.count2==9&&c==9){
+      return this.state.red2
+    }else if(this.state.count2==10&&c==10){
+      return this.state.red2
+    }else if(this.state.count2==11&&c==11){
+      return this.state.red2
+    }else if(this.state.count2==12&&c==12){
+      return this.state.red2
+    }else if(this.state.count2==13&&c==13){
+      return this.state.red2
+    }else if(this.state.count2==14&&c==14){
+      return this.state.red2
+    }else if(this.state.count2==15&&c==15){
+      return this.state.red2
+    }else if(this.state.count2==16&&c==16){
+      return this.state.red2
+    }
+  }
+
 render() {
   return(
     <div >
-      <div  ><div className="square" style={{backgroundColor:"green"}}></div><div className="square"></div></div>
-      <div><h1>Parking Lot App</h1></div>
-      <div>
-        <button onClick={this.handleVehicleType}>Cick To Select Vehicle Type</button>
+      <div className="header"><h1>Parking Lot App</h1></div>
+      <div className="vehicle">
+        <button className="butt" onClick={this.handleVehicleType}>Cick To Select Vehicle Type</button>
         {this.state.toggleType&&<div>
-        <button onClick={this.handleTwoWheeler}>Two Wheeler</button>
-        <button onClick={this.handleFourWheeler}>Four Wheeler</button>
+        <button className="butt" onClick={this.handleTwoWheeler}>Two Wheeler</button>
+        <button className="butt" onClick={this.handleFourWheeler}>Four Wheeler</button>
         </div>}
       </div>
         <div>
         </div>
         <div>
           {this.state.toggleTwo&&
-          <div>
-            <button onClick={this.handleTwoTickeGenrator} >Two Wheeler Ticket Genrator</button>
-            {this.state.collect&& <button  > Your Ticket No Is:  {this.state.count} </button>}
+          <div className="twoWheel">
+            <button className="butt" onClick={this.handleTwoTickeGenrator}  >Two Wheeler Ticket Genrator</button>
+            {this.state.collect&& <button className="butt"  > Please Click on Plot No :  {this.state.count} To Occupy it </button>}
             <div className="row">
-            <div><div style={{backgroundColor:this.handleStyle(1)}}   className="square"  >1</div><div style={{backgroundColor:this.handleStyle(2)}} className="square" >2</div><div style={{backgroundColor:this.handleStyle(3)}} className="square" >3</div ><div style={{backgroundColor:this.handleStyle(4)}} className="square" >4</div></div>
-            <div><div style={{backgroundColor:this.handleStyle(5)}}  className="square"  >5</div><div style={{backgroundColor:this.handleStyle(6)}} className="square" >6</div><div style={{backgroundColor:this.handleStyle(7)}} className="square" >7</div ><div style={{backgroundColor:this.handleStyle(8)}} className="square" >8</div></div>
-            <div><div style={{backgroundColor:this.handleStyle(9)}} className="square"  >9</div><div style={{backgroundColor:this.handleStyle(10)}} className="square">10</div><div style={{backgroundColor:this.handleStyle(11)}} className="square" >11</div ><div style={{backgroundColor:this.handleStyle(12)}} className="square" >12</div></div>
-            <div><div style={{backgroundColor:this.handleStyle(13)}} className="square" >13</div><div style={{backgroundColor:this.handleStyle(14)}} className="square" >14</div><div style={{backgroundColor:this.handleStyle(15)}} className="square" >15</div ><div style={{backgroundColor:this.handleStyle(16)}} className="square">16</div></div>
+            <div><div onClick={this.handleClassName} style={{backgroundColor:this.handleStyle(1)}}    className="square" >Plot 1</div><div onClick={this.handleClassName} style={{backgroundColor:this.handleStyle(2)}} className="square" >Plot 2</div><div onClick={this.handleClassName} style={{backgroundColor:this.handleStyle(3)}} className="square" >Plot 3</div ><div onClick={this.handleClassName}  style={{backgroundColor:this.handleStyle(4)}} className="square" >Plot 4</div></div>
+            <div><div onClick={this.handleClassName} style={{backgroundColor:this.handleStyle(5)}}  className="square"  >Plot 5</div><div onClick={this.handleClassName} style={{backgroundColor:this.handleStyle(6)}} className="square" >Plot 6</div><div   onClick={this.handleClassName} style={{backgroundColor:this.handleStyle(7)}} className="square" >Plot 7</div ><div    onClick={this.handleClassName} style={{backgroundColor:this.handleStyle(8)}} className="square" >Plot 8</div></div>
+            <div><div onClick={this.handleClassName} style={{backgroundColor:this.handleStyle(9)}} className="square"  >Plot 9</div><div  onClick={this.handleClassName} style={{backgroundColor:this.handleStyle(10)}} className="square">Plot 10</div><div  onClick={this.handleClassName} style={{backgroundColor:this.handleStyle(11)}} className="square" >Plot 11</div ><div  onClick={this.handleClassName} style={{backgroundColor:this.handleStyle(12)}} className="square" >Plot 12</div></div>
+            <div><div onClick={this.handleClassName} style={{backgroundColor:this.handleStyle(13)}} className="square" >Plot 13</div><div onClick={this.handleClassName} style={{backgroundColor:this.handleStyle(14)}} className="square" >Plot 14</div><div onClick={this.handleClassName}  style={{backgroundColor:this.handleStyle(15)}} className="square" >Plot 15</div ><div onClick={this.handleClassName} style={{backgroundColor:this.handleStyle(16)}} className="square">Plot 16</div></div>
             </div>
             </div>}
         </div>
         <div>
-         {this.state.toggleFour&& <div>
-            <button>Four Wheeler Ticket Genrator</button>
-            <div><button className="green" value="1" >1</button><button className="green" value="2">2</button><button className="green" value="3">3</button ><button className="green" value="4">4</button></div>
-          <div><button className="green" value="5" >5</button><button className="green" value="6">6</button><button className="green" value="7">7</button ><button className="green" value="8">8</button></div>
-          <div><button className="green" value="9" >9</button><button className="green" value="10">1</button><button className="green" value="11">1</button><button className="green" value="12">1</button></div>
-          <div><button className="green" value="13" >1</button><button className="green" value="14">1</button><button className="green" value="15">1</button><button className="green" value="16">1</button></div>
-          </div>}
+         {this.state.toggleFour&& 
+         <div className="fourWheel">
+            <button onClick={this.handleFourTickeGenrator} className="butt" >Four Wheeler Ticket Genrator</button>
+            {this.state.collect2&& <button className="butt" > Please Click on Plot No :  {this.state.count2} To Occupy it </button>}
+            <div className="row1">
+            <div><div onClick={this.handleClassName2} style={{backgroundColor:this.handleStyle2(1)}}    className="square">Plot 1</div><div onClick={this.handleClassName2} style={{backgroundColor:this.handleStyle2(2)}} className="square" >Plot 2</div><div onClick={this.handleClassName2}   style={{backgroundColor:this.handleStyle2(3)}} className="square" >Plot 3</div ><div onClick={this.handleClassName2}    style={{backgroundColor:this.handleStyle2(4)}} className="square" >Plot 4</div></div>
+            <div><div onClick={this.handleClassName2} style={{backgroundColor:this.handleStyle2(5)}}  className="square"  >Plot 5</div><div onClick={this.handleClassName2} style={{backgroundColor:this.handleStyle2(6)}} className="square" >Plot 6</div><div   onClick={this.handleClassName2} style={{backgroundColor:this.handleStyle2(7)}} className="square" >Plot 7</div ><div    onClick={this.handleClassName2} style={{backgroundColor:this.handleStyle2(8)}} className="square" >Plot 8</div></div>
+            <div><div onClick={this.handleClassName2} style={{backgroundColor:this.handleStyle2(9)}} className="square"  >Plot 9 </div><div  onClick={this.handleClassName2} style={{backgroundColor:this.handleStyle2(10)}} className="square">Plot 10</div><div  onClick={this.handleClassName2} style={{backgroundColor:this.handleStyle2(11)}} className="square" >Plot 11</div ><div  onClick={this.handleClassName2} style={{backgroundColor:this.handleStyle2(12)}} className="square" >Plot 12</div></div>
+            <div><div onClick={this.handleClassName2} style={{backgroundColor:this.handleStyle2(13)}} className="square" >Plot 13</div><div onClick={this.handleClassName2} style={{backgroundColor:this.handleStyle2(14)}} className="square" >Plot 14</div><div onClick={this.handleClassName2} style={{backgroundColor:this.handleStyle2(15)}} className="square" >Plot 15</div ><div onClick={this.handleClassName2}  style={{backgroundColor:this.handleStyle2(16)}} className="square">Plot 16</div></div>
+            </div>
+            </div>}
         </div>
+        <div className="detail" ><div className="divv"  style={{backgroundColor:"greenyellow"}} >Plot is empty</div><div className="divv" style={{backgroundColor:"orange"}} >Ticket is placed for selected Plot </div> <div className="divv" style={{backgroundColor:"red"}}>Plot is boocked</div> </div>
     </div>
       )
     }

@@ -1,7 +1,12 @@
+.divv{
+    width: 31vw;
+    height: 2vw;
+    
+}
 .square {
     background-color: greenyellow;
-    width: 3vw;
-    height: 2vw;
+    width: 7vw;
+    height: 3vw;
     animation: mymove ;
 }
 @keyframes mymove {
@@ -9,4 +14,33 @@
 }
 .row{
     display: flex;
+}
+.row1{
+    display: flex;
+}
+.yzx{
+    width: 7vw;
+    height: 3vw;
+    background-color: red;
+}
+.header{
+    text-align-last: center;
+}
+.vehicle{
+    text-align-last: center;
+}
+.fourWheel{
+    text-align-last: center;
+}
+
+.twoWheel{
+    text-align-last: center;
+}
+.detail{
+    position: absolute;
+    top: 86%;
+}
+.butt{
+    border: none;
+    background-color: white;
 }
