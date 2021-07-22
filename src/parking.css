@@ -1,0 +1,12 @@
+.square {
+    background-color: greenyellow;
+    width: 3vw;
+    height: 2vw;
+    animation: mymove ;
+}
+@keyframes mymove {
+      0%   {background: black;}
+}
+.row{
+    display: flex;
+}
