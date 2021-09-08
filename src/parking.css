@@ -44,3 +44,27 @@
     border: none;
     background-color: white;
 }
+
+@media only screen and (max-width: 600px) {
+    .divv {
+        width: 74vw;
+        height: 5vw;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .square {
+        background-color: greenyellow;
+        width: 15vw;
+        height: 8vw;
+        animation: mymove;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .yzx {
+        width: 15vw;
+        height: 8vw;
+        background-color: red;
+    }
+}
